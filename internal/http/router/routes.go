@@ -177,6 +177,18 @@ func PrivateRoutes(UserHandler *handler.UserHandler, TicketHandler *handler.Tick
 			Path:    "/ticket/price/:min/:max",
 			Handler: TicketHandler.FilterTicketByPrice,
 		},
+		// Untuk mengecek saldo
+		{
+			Method:  echo.GET,
+			Path:    "/saldo/cek",
+			Handler: SaldoHandler.Ceksaldo,
+		},
+		// Untuk top up
+		{
+			Method:  echo.GET,
+			Path:    "/saldo/topup",
+			Handler: SaldoHandler.topUpBalance,
+		},
 	}
 }
 

@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
-type saldo struct {
+type Saldo struct {
 	ID        int64          `json:"id"`
 	Name      string         `json:"name"`
 	Amount    float64        `json:"amount"`
@@ -16,8 +16,8 @@ type saldo struct {
 	DeletedAt gorm.DeletedAt `json:"-"`
 }
 
-func topupsaldo(amount float64, name, currency string) *saldo {
-	return &saldo{
+func topUpRequest(amount float64, name, currency string) *Saldo {
+	return &Saldo{
 		Name:      name,
 		Amount:    amount,
 		Currency:  currency,
@@ -25,8 +25,8 @@ func topupsaldo(amount float64, name, currency string) *saldo {
 	}
 }
 
-func ceksaldo(amount float64, currency string) *saldo {
-	return &saldo{
+func ceksaldo(amount float64, currency string) *Saldo {
+	return &Saldo{
 		Amount:    amount,
 		Currency:  currency,
 		Timestamp: time.Now(),
